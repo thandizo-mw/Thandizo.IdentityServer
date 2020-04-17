@@ -1,0 +1,965 @@
+2020-04-06 11:24:14.490 +02:00 [INF] Starting host...
+2020-04-06 11:24:25.582 +02:00 [FTL] Application startup exception
+System.InvalidOperationException: Application is running inside IIS process but is not configured to use IIS server.
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2020-04-06 11:24:26.246 +02:00 [FTL] Host terminated unexpectedly.
+System.InvalidOperationException: Application is running inside IIS process but is not configured to use IIS server.
+   at Microsoft.AspNetCore.Server.IIS.Core.IISServerSetupFilter.<>c__DisplayClass2_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at IdentityServer.Program.Main(String[] args) in C:\Users\AD-SDM\source\repos\Thandizo.IdentityServer\Thandizo.IdentityServer\Program.cs:line 32
+2020-04-06 11:25:23.540 +02:00 [INF] Starting host...
+2020-04-06 11:25:24.131 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-06 11:25:24.865 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-06 11:25:24.866 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-06 11:25:24.866 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-06 11:25:24.866 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-06 11:25:24.866 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-06 11:25:24.866 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-06 11:26:02.129 +02:00 [DBG] Login Url: /Account/Login
+2020-04-06 11:26:02.130 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-06 11:26:02.130 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-06 11:26:02.130 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-06 11:26:02.130 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-06 11:26:02.130 +02:00 [DBG] Error Url: /home/error
+2020-04-06 11:26:02.130 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-06 11:31:31.310 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-06 11:31:31.315 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-06 11:31:31.315 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-06 11:31:31.420 +02:00 [DBG] Start discovery request
+2020-04-06 11:31:34.438 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-06 12:25:24.337 +02:00 [INF] Removing 0 grants
+2020-04-06 12:25:24.367 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 13:46:54.893 +02:00 [ERR] An error occurred using the connection to database 'thandizo_identity' on server 'tcp://localhost:5432'.
+2020-04-06 13:46:54.945 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'IdentityServer4.EntityFramework.DbContexts.PersistedGrantDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__274_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__274_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2020-04-06 13:46:54.953 +02:00 [ERR] Exception removing expired grants: An exception has been raised that is likely due to a transient failure.
+2020-04-06 14:46:55.424 +02:00 [INF] Removing 0 grants
+2020-04-06 14:46:55.431 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 15:46:59.658 +02:00 [INF] Removing 0 grants
+2020-04-06 15:46:59.822 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 19:38:16.458 +02:00 [INF] Removing 0 grants
+2020-04-06 19:38:16.465 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 20:38:16.785 +02:00 [INF] Removing 0 grants
+2020-04-06 20:38:16.793 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 21:38:17.008 +02:00 [INF] Removing 0 grants
+2020-04-06 21:38:17.016 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 22:38:17.156 +02:00 [INF] Removing 0 grants
+2020-04-06 22:38:17.167 +02:00 [INF] Removing 0 device flow codes
+2020-04-06 23:38:17.387 +02:00 [INF] Removing 0 grants
+2020-04-06 23:38:17.394 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 00:38:17.483 +02:00 [INF] Removing 0 grants
+2020-04-07 00:38:17.488 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 06:54:27.897 +02:00 [INF] Removing 0 grants
+2020-04-07 06:54:27.901 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 07:54:27.972 +02:00 [INF] Removing 0 grants
+2020-04-07 07:54:27.976 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 09:28:23.681 +02:00 [INF] Removing 0 grants
+2020-04-07 09:28:23.685 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 10:28:23.840 +02:00 [INF] Removing 0 grants
+2020-04-07 10:28:23.850 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 13:48:45.539 +02:00 [INF] Removing 0 grants
+2020-04-07 13:48:45.543 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 17:24:58.175 +02:00 [ERR] An error occurred using the connection to database 'thandizo_identity' on server 'tcp://localhost:5432'.
+2020-04-07 17:25:08.741 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'IdentityServer4.EntityFramework.DbContexts.PersistedGrantDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> System.TimeoutException: The operation has timed out.
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> System.TimeoutException: The operation has timed out.
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2020-04-07 17:25:09.458 +02:00 [ERR] Exception removing expired grants: An exception has been raised that is likely due to a transient failure.
+2020-04-07 18:25:10.171 +02:00 [INF] Removing 0 grants
+2020-04-07 18:25:10.208 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 19:25:10.498 +02:00 [INF] Removing 0 grants
+2020-04-07 19:25:10.509 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 20:25:10.634 +02:00 [INF] Removing 0 grants
+2020-04-07 20:25:10.638 +02:00 [INF] Removing 0 device flow codes
+2020-04-07 21:25:10.746 +02:00 [INF] Removing 0 grants
+2020-04-07 21:25:10.775 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 05:34:51.136 +02:00 [INF] Removing 0 grants
+2020-04-08 05:34:51.139 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 06:34:51.501 +02:00 [INF] Removing 0 grants
+2020-04-08 06:34:51.504 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 07:34:51.705 +02:00 [INF] Removing 0 grants
+2020-04-08 07:34:51.715 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 08:34:51.812 +02:00 [INF] Removing 0 grants
+2020-04-08 08:34:51.816 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 17:32:19.029 +02:00 [INF] Removing 0 grants
+2020-04-08 17:32:19.067 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 18:32:19.254 +02:00 [INF] Removing 0 grants
+2020-04-08 18:32:19.259 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 20:21:23.483 +02:00 [INF] Removing 0 grants
+2020-04-08 20:21:23.619 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 21:21:23.913 +02:00 [INF] Removing 0 grants
+2020-04-08 21:21:23.916 +02:00 [INF] Removing 0 device flow codes
+2020-04-08 22:21:24.188 +02:00 [INF] Removing 0 grants
+2020-04-08 22:21:24.232 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 04:42:11.800 +02:00 [INF] Removing 0 grants
+2020-04-09 04:42:11.806 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 05:42:11.950 +02:00 [INF] Removing 0 grants
+2020-04-09 05:42:11.956 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 06:42:12.029 +02:00 [INF] Removing 0 grants
+2020-04-09 06:42:12.035 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 07:42:12.312 +02:00 [INF] Removing 0 grants
+2020-04-09 07:42:12.315 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 08:42:12.413 +02:00 [INF] Removing 0 grants
+2020-04-09 08:42:12.419 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 10:49:32.181 +02:00 [INF] Removing 0 grants
+2020-04-09 10:49:32.184 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 11:49:32.247 +02:00 [INF] Removing 0 grants
+2020-04-09 11:49:32.250 +02:00 [INF] Removing 0 device flow codes
+2020-04-09 12:49:32.375 +02:00 [INF] Removing 0 grants
+2020-04-09 12:49:32.379 +02:00 [INF] Removing 0 device flow codes
+2020-04-15 16:48:31.463 +02:00 [INF] Starting host...
+2020-04-15 16:48:34.417 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-15 16:48:35.088 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-15 16:48:35.088 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-15 16:48:35.088 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-15 16:48:35.088 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-15 16:48:35.088 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-15 16:48:35.088 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-15 18:34:07.925 +02:00 [INF] Removing 0 grants
+2020-04-15 18:34:08.038 +02:00 [INF] Removing 0 device flow codes
+2020-04-15 19:34:08.271 +02:00 [INF] Removing 0 grants
+2020-04-15 19:34:08.276 +02:00 [INF] Removing 0 device flow codes
+2020-04-15 20:34:08.374 +02:00 [INF] Removing 0 grants
+2020-04-15 20:34:08.378 +02:00 [INF] Removing 0 device flow codes
+2020-04-15 21:34:17.214 +02:00 [INF] Removing 0 grants
+2020-04-15 21:34:17.615 +02:00 [INF] Removing 0 device flow codes
+2020-04-15 22:34:17.781 +02:00 [INF] Removing 0 grants
+2020-04-15 22:34:17.786 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 02:25:20.477 +02:00 [INF] Removing 0 grants
+2020-04-16 02:25:20.511 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 03:25:23.814 +02:00 [INF] Removing 0 grants
+2020-04-16 03:25:23.820 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 06:27:39.802 +02:00 [INF] Removing 0 grants
+2020-04-16 06:27:39.807 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 07:49:16.133 +02:00 [INF] Removing 0 grants
+2020-04-16 07:49:16.138 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 09:05:57.942 +02:00 [INF] Removing 0 grants
+2020-04-16 09:05:58.051 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 10:05:58.258 +02:00 [INF] Removing 0 grants
+2020-04-16 10:05:58.262 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 11:05:58.396 +02:00 [INF] Removing 0 grants
+2020-04-16 11:05:58.401 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 12:05:58.516 +02:00 [INF] Removing 0 grants
+2020-04-16 12:05:58.522 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 12:41:50.185 +02:00 [DBG] Login Url: /Account/Login
+2020-04-16 12:41:50.190 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-16 12:41:50.190 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-16 12:41:50.190 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-16 12:41:50.190 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-16 12:41:50.190 +02:00 [DBG] Error Url: /home/error
+2020-04-16 12:41:50.190 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-16 12:41:50.316 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 12:41:50.342 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 12:41:50.342 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 12:41:50.355 +02:00 [DBG] Start discovery request
+2020-04-16 12:41:55.095 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 12:41:56.523 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-16 12:41:56.525 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-16 12:41:56.525 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-16 12:41:56.528 +02:00 [DBG] Start key discovery request
+2020-04-16 12:41:59.324 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-16 12:41:59.361 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-16 12:41:59.361 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-16 12:41:59.369 +02:00 [DBG] Start token request.
+2020-04-16 12:41:59.397 +02:00 [DBG] Start client validation
+2020-04-16 12:41:59.405 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-16 12:41:59.407 +02:00 [DBG] Start parsing for secret in post body
+2020-04-16 12:41:59.459 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-16 12:41:59.459 +02:00 [DBG] Secret id found: client
+2020-04-16 12:41:59.746 +02:00 [INF] {"ClientId":"client","Category":"Authentication","Name":"Client Authentication Failure","EventType":"Failure","Id":1011,"Message":"Unknown client","ActivityId":"0HLV1UB1U2EKE:00000003","TimeStamp":"2020-04-16T10:41:59.0000000Z","ProcessId":24416,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationFailureEvent"}
+2020-04-16 12:41:59.751 +02:00 [ERR] No client with id 'client' found. aborting
+2020-04-16 13:05:58.602 +02:00 [INF] Removing 0 grants
+2020-04-16 13:05:58.611 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 14:27:01.023 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 14:27:01.025 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 14:27:01.026 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 14:27:01.026 +02:00 [DBG] Start discovery request
+2020-04-16 14:27:01.297 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 14:27:02.187 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-16 14:27:02.188 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-16 14:27:02.188 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-16 14:27:02.188 +02:00 [DBG] Start key discovery request
+2020-04-16 14:27:02.949 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-16 14:27:02.950 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-16 14:27:02.950 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-16 14:27:02.951 +02:00 [DBG] Start token request.
+2020-04-16 14:27:02.951 +02:00 [DBG] Start client validation
+2020-04-16 14:27:02.951 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-16 14:27:02.952 +02:00 [DBG] Start parsing for secret in post body
+2020-04-16 14:27:02.953 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-16 14:27:02.954 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-16 14:27:04.051 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-16 14:27:04.057 +02:00 [ERR] Invalid client configuration for client thandizo_whatsapp_client: no allowed grant type specified
+2020-04-16 14:27:04.062 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","Category":"Error","Name":"Invalid Client Configuration","EventType":"Error","Id":3001,"Message":"no allowed grant type specified","ActivityId":"0HLV1UB1U2EKF:00000003","TimeStamp":"2020-04-16T12:27:04.0000000Z","ProcessId":24416,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"InvalidClientConfigurationEvent"}
+2020-04-16 14:27:04.062 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","Category":"Authentication","Name":"Client Authentication Failure","EventType":"Failure","Id":1011,"Message":"Unknown client","ActivityId":"0HLV1UB1U2EKF:00000003","TimeStamp":"2020-04-16T12:27:04.0000000Z","ProcessId":24416,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationFailureEvent"}
+2020-04-16 14:27:04.062 +02:00 [ERR] No client with id 'thandizo_whatsapp_client' found. aborting
+2020-04-16 16:10:48.358 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 16:10:48.392 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 16:10:48.392 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 16:10:48.392 +02:00 [DBG] Start discovery request
+2020-04-16 16:10:48.821 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 16:10:49.283 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-16 16:10:49.284 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-16 16:10:49.284 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-16 16:10:49.285 +02:00 [DBG] Start key discovery request
+2020-04-16 16:10:49.974 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-16 16:10:50.054 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-16 16:10:50.054 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-16 16:10:50.054 +02:00 [DBG] Start token request.
+2020-04-16 16:10:50.054 +02:00 [DBG] Start client validation
+2020-04-16 16:10:50.055 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-16 16:10:50.055 +02:00 [DBG] Start parsing for secret in post body
+2020-04-16 16:10:50.087 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-16 16:10:50.087 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-16 16:10:50.158 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-16 16:10:50.159 +02:00 [ERR] Invalid client configuration for client thandizo_whatsapp_client: no allowed grant type specified
+2020-04-16 16:10:50.159 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","Category":"Error","Name":"Invalid Client Configuration","EventType":"Error","Id":3001,"Message":"no allowed grant type specified","ActivityId":"0HLV1UB1U2EKG:00000003","TimeStamp":"2020-04-16T14:10:50.0000000Z","ProcessId":24416,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"InvalidClientConfigurationEvent"}
+2020-04-16 16:10:50.160 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","Category":"Authentication","Name":"Client Authentication Failure","EventType":"Failure","Id":1011,"Message":"Unknown client","ActivityId":"0HLV1UB1U2EKG:00000003","TimeStamp":"2020-04-16T14:10:50.0000000Z","ProcessId":24416,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationFailureEvent"}
+2020-04-16 16:10:50.160 +02:00 [ERR] No client with id 'thandizo_whatsapp_client' found. aborting
+2020-04-16 16:12:05.385 +02:00 [INF] Starting host...
+2020-04-16 16:12:16.845 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-16 16:12:17.747 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-16 16:12:17.749 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-16 16:12:17.749 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-16 16:12:17.749 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-16 16:12:17.749 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-16 16:12:17.749 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-16 16:13:04.530 +02:00 [DBG] Login Url: /Account/Login
+2020-04-16 16:13:04.539 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-16 16:13:04.540 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-16 16:13:04.540 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-16 16:13:04.540 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-16 16:13:04.540 +02:00 [DBG] Error Url: /home/error
+2020-04-16 16:13:04.540 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-16 16:13:04.627 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 16:13:04.634 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 16:13:04.634 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 16:13:04.636 +02:00 [DBG] Start discovery request
+2020-04-16 16:13:12.374 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 16:13:13.888 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-16 16:13:13.890 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-16 16:13:13.890 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-16 16:13:13.892 +02:00 [DBG] Start key discovery request
+2020-04-16 16:13:14.702 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-16 16:13:14.712 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-16 16:13:14.712 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-16 16:13:14.720 +02:00 [DBG] Start token request.
+2020-04-16 16:13:14.725 +02:00 [DBG] Start client validation
+2020-04-16 16:13:14.735 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-16 16:13:14.737 +02:00 [DBG] Start parsing for secret in post body
+2020-04-16 16:13:14.752 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-16 16:13:14.752 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-16 16:13:15.486 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-16 16:13:15.496 +02:00 [ERR] Invalid client configuration for client thandizo_whatsapp_client: no allowed grant type specified
+2020-04-16 16:13:15.519 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","Category":"Error","Name":"Invalid Client Configuration","EventType":"Error","Id":3001,"Message":"no allowed grant type specified","ActivityId":"0HLV2213OK712:00000003","TimeStamp":"2020-04-16T14:13:15.0000000Z","ProcessId":12632,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"InvalidClientConfigurationEvent"}
+2020-04-16 16:13:15.534 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","Category":"Authentication","Name":"Client Authentication Failure","EventType":"Failure","Id":1011,"Message":"Unknown client","ActivityId":"0HLV2213OK712:00000003","TimeStamp":"2020-04-16T14:13:15.0000000Z","ProcessId":12632,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationFailureEvent"}
+2020-04-16 16:13:15.535 +02:00 [ERR] No client with id 'thandizo_whatsapp_client' found. aborting
+2020-04-16 16:19:57.031 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 16:19:57.034 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 16:19:57.035 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 16:19:57.035 +02:00 [DBG] Start discovery request
+2020-04-16 16:19:58.317 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 16:48:44.050 +02:00 [INF] Starting host...
+2020-04-16 16:48:49.629 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-16 16:48:51.540 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-16 16:48:51.541 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-16 16:48:51.542 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-16 16:48:51.542 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-16 16:48:51.542 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-16 16:48:51.542 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-16 16:49:46.466 +02:00 [DBG] Login Url: /Account/Login
+2020-04-16 16:49:46.469 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-16 16:49:46.469 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-16 16:49:46.469 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-16 16:49:46.469 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-16 16:49:46.469 +02:00 [DBG] Error Url: /home/error
+2020-04-16 16:49:46.470 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-16 16:49:46.508 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 16:49:46.520 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 16:49:46.520 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 16:49:46.623 +02:00 [DBG] Start discovery request
+2020-04-16 16:49:52.285 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-16 16:49:52.899 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-16 16:49:52.900 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-16 16:49:52.900 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-16 16:49:52.901 +02:00 [DBG] Start key discovery request
+2020-04-16 16:49:53.778 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-16 16:49:53.786 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-16 16:49:53.787 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-16 16:49:53.792 +02:00 [DBG] Start token request.
+2020-04-16 16:49:53.805 +02:00 [DBG] Start client validation
+2020-04-16 16:49:53.813 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-16 16:49:53.815 +02:00 [DBG] Start parsing for secret in post body
+2020-04-16 16:49:53.864 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-16 16:49:53.864 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-16 16:49:54.728 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-16 16:49:54.734 +02:00 [ERR] Invalid client configuration for client thandizo_whatsapp_client: no allowed grant type specified
+2020-04-16 16:49:54.768 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","Category":"Error","Name":"Invalid Client Configuration","EventType":"Error","Id":3001,"Message":"no allowed grant type specified","ActivityId":"0HLV22LJTUBNP:00000003","TimeStamp":"2020-04-16T14:49:54.0000000Z","ProcessId":7260,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"InvalidClientConfigurationEvent"}
+2020-04-16 16:49:54.795 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","Category":"Authentication","Name":"Client Authentication Failure","EventType":"Failure","Id":1011,"Message":"Unknown client","ActivityId":"0HLV22LJTUBNP:00000003","TimeStamp":"2020-04-16T14:49:54.0000000Z","ProcessId":7260,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationFailureEvent"}
+2020-04-16 16:49:54.796 +02:00 [ERR] No client with id 'thandizo_whatsapp_client' found. aborting
+2020-04-16 16:50:38.250 +02:00 [INF] Starting host...
+2020-04-16 16:50:39.810 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-16 16:50:40.571 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-16 16:50:40.588 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-16 16:50:40.594 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-16 16:50:40.594 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-16 16:50:40.594 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-16 16:50:40.594 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-16 17:42:20.598 +02:00 [DBG] Login Url: /Account/Login
+2020-04-16 17:42:20.602 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-16 17:42:20.602 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-16 17:42:20.605 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-16 17:42:20.606 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-16 17:42:20.607 +02:00 [DBG] Error Url: /home/error
+2020-04-16 17:42:20.608 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-16 17:42:20.652 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-16 17:42:20.658 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-16 17:42:20.658 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-16 17:42:20.661 +02:00 [DBG] Start discovery request
+2020-04-16 17:42:25.821 +02:00 [ERR] An error occurred using the connection to database 'thandizo_identity' on server 'tcp://localhost:5433'.
+2020-04-16 17:42:26.265 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'IdentityServer4.EntityFramework.DbContexts.ConfigurationDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2020-04-16 17:42:26.426 +02:00 [INF] {"Details":"System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.\r\n ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream\r\n ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.\r\n   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()\r\n   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)\r\n   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)\r\n   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)\r\n   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)\r\n   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)\r\n   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\r\n   --- End of inner exception stack trace ---\r\n   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()\r\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)\r\n   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)\r\n   at IdentityServer4.EntityFramework.Stores.ResourceStore.GetAllResourcesAsync()\r\n   at IdentityServer4.Stores.IResourceStoreExtensions.GetAllEnabledResourcesAsync(IResourceStore store)\r\n   at IdentityServer4.ResponseHandling.DiscoveryResponseGenerator.CreateDiscoveryDocumentAsync(String baseUrl, String issuerUri)\r\n   at IdentityServer4.Endpoints.DiscoveryEndpoint.ProcessAsync(HttpContext context)\r\n   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events)","Category":"Error","Name":"Unhandled Exception","EventType":"Error","Id":3000,"Message":"An exception has been raised that is likely due to a transient failure.","ActivityId":"0HLV23IVSB6AQ:00000001","TimeStamp":"2020-04-16T15:42:26.0000000Z","ProcessId":32536,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"UnhandledExceptionEvent"}
+2020-04-16 17:42:26.450 +02:00 [FTL] Unhandled exception: An exception has been raised that is likely due to a transient failure.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at IdentityServer4.EntityFramework.Stores.ResourceStore.GetAllResourcesAsync()
+   at IdentityServer4.Stores.IResourceStoreExtensions.GetAllEnabledResourcesAsync(IResourceStore store)
+   at IdentityServer4.ResponseHandling.DiscoveryResponseGenerator.CreateDiscoveryDocumentAsync(String baseUrl, String issuerUri)
+   at IdentityServer4.Endpoints.DiscoveryEndpoint.ProcessAsync(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events)
+2020-04-16 17:42:26.480 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at IdentityServer4.EntityFramework.Stores.ResourceStore.GetAllResourcesAsync()
+   at IdentityServer4.Stores.IResourceStoreExtensions.GetAllEnabledResourcesAsync(IResourceStore store)
+   at IdentityServer4.ResponseHandling.DiscoveryResponseGenerator.CreateDiscoveryDocumentAsync(String baseUrl, String issuerUri)
+   at IdentityServer4.Endpoints.DiscoveryEndpoint.ProcessAsync(HttpContext context)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events)
+   at IdentityServer4.Hosting.IdentityServerMiddleware.Invoke(HttpContext context, IEndpointRouter router, IUserSession session, IEventService events)
+   at IdentityServer4.Hosting.MutualTlsTokenEndpointMiddleware.Invoke(HttpContext context, IAuthenticationSchemeProvider schemes)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at IdentityServer4.Hosting.BaseUrlMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-04-16 17:50:40.203 +02:00 [ERR] An error occurred using the connection to database 'thandizo_identity' on server 'tcp://localhost:5433'.
+2020-04-16 17:50:40.210 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'IdentityServer4.EntityFramework.DbContexts.PersistedGrantDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+   at Npgsql.NpgsqlReadBuffer.<>c__DisplayClass34_0.<<Ensure>g__EnsureLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass160_0.<<DoReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async)
+   at Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2020-04-16 17:50:40.228 +02:00 [ERR] Exception removing expired grants: An exception has been raised that is likely due to a transient failure.
+2020-04-16 18:18:59.619 +02:00 [INF] Starting host...
+2020-04-16 18:19:01.243 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-16 18:19:01.553 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-16 18:19:01.553 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-16 18:19:01.554 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-16 18:19:01.554 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-16 18:19:01.554 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-16 18:19:01.554 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-16 19:19:09.536 +02:00 [INF] Removing 0 grants
+2020-04-16 19:19:09.692 +02:00 [INF] Removing 0 device flow codes
+2020-04-16 20:44:27.090 +02:00 [INF] Removing 0 grants
+2020-04-16 20:44:27.097 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 02:25:01.672 +02:00 [INF] Starting host...
+2020-04-17 02:25:14.116 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-17 02:25:15.125 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-17 02:25:15.125 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-17 02:25:15.125 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-17 02:25:15.125 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-17 02:25:15.125 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-17 02:25:15.125 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-17 02:33:25.977 +02:00 [DBG] Login Url: /Account/Login
+2020-04-17 02:33:25.979 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-17 02:33:25.980 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-17 02:33:25.980 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-17 02:33:25.980 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-17 02:33:25.980 +02:00 [DBG] Error Url: /home/error
+2020-04-17 02:33:25.980 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-17 02:36:20.245 +02:00 [INF] Starting host...
+2020-04-17 02:36:20.920 +02:00 [INF] Starting IdentityServer4 version 3.1.0.0
+2020-04-17 02:36:21.050 +02:00 [INF] Using the default authentication scheme idsrv for IdentityServer
+2020-04-17 02:36:21.050 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2020-04-17 02:36:21.050 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2020-04-17 02:36:21.050 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2020-04-17 02:36:21.051 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2020-04-17 02:36:21.051 +02:00 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2020-04-17 02:36:25.346 +02:00 [DBG] Login Url: /Account/Login
+2020-04-17 02:36:25.349 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-17 02:36:25.349 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-17 02:36:25.349 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-17 02:36:25.349 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-17 02:36:25.349 +02:00 [DBG] Error Url: /home/error
+2020-04-17 02:36:25.349 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-17 02:41:48.166 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 02:41:48.192 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 02:41:48.192 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 02:41:48.198 +02:00 [DBG] Start discovery request
+2020-04-17 02:41:49.609 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-17 02:45:15.209 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 02:45:15.212 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 02:45:15.216 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 02:45:15.217 +02:00 [DBG] Start discovery request
+2020-04-17 02:45:15.334 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-17 02:45:15.981 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 02:45:15.982 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 02:45:15.983 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 02:45:15.984 +02:00 [DBG] Start key discovery request
+2020-04-17 02:45:16.972 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 02:45:16.980 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 02:45:16.980 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 02:45:16.984 +02:00 [DBG] Start token request.
+2020-04-17 02:45:17.010 +02:00 [DBG] Start client validation
+2020-04-17 02:45:17.016 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 02:45:17.017 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 02:45:17.071 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 02:45:17.071 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 02:45:17.883 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 02:45:17.899 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 02:45:17.934 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 02:45:17.934 +02:00 [DBG] Client validation success
+2020-04-17 02:45:17.981 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480D:00000003","TimeStamp":"2020-04-17T00:45:17.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 02:45:17.990 +02:00 [DBG] Start token request validation
+2020-04-17 02:45:17.997 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 02:45:18.101 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 02:45:18.173 +02:00 [DBG] Found [] API scopes in database
+2020-04-17 02:45:18.176 +02:00 [ERR] Requested scope not allowed: api_gateway
+2020-04-17 02:45:18.183 +02:00 [ERR] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":null,"AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"api_gateway","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 02:45:18.194 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":null,"GrantType":"client_credentials","Error":"invalid_scope","ErrorDescription":null,"Category":"Token","Name":"Token Issued Failure","EventType":"Failure","Id":2001,"Message":null,"ActivityId":"0HLV2CTE2480D:00000003","TimeStamp":"2020-04-17T00:45:18.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedFailureEvent"}
+2020-04-17 02:46:32.133 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 02:46:32.139 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 02:46:32.139 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 02:46:32.139 +02:00 [DBG] Start discovery request
+2020-04-17 02:46:32.294 +02:00 [DBG] Found ["full_access"] as all scopes in database
+2020-04-17 02:46:32.925 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 02:46:32.926 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 02:46:32.926 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 02:46:32.926 +02:00 [DBG] Start key discovery request
+2020-04-17 02:46:33.528 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 02:46:33.530 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 02:46:33.530 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 02:46:33.531 +02:00 [DBG] Start token request.
+2020-04-17 02:46:33.531 +02:00 [DBG] Start client validation
+2020-04-17 02:46:33.531 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 02:46:33.531 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 02:46:33.532 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 02:46:33.532 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 02:46:33.591 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 02:46:33.591 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 02:46:33.591 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 02:46:33.592 +02:00 [DBG] Client validation success
+2020-04-17 02:46:33.592 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480E:00000003","TimeStamp":"2020-04-17T00:46:33.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 02:46:33.593 +02:00 [DBG] Start token request validation
+2020-04-17 02:46:33.593 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 02:46:33.596 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 02:46:33.601 +02:00 [DBG] Found [] API scopes in database
+2020-04-17 02:46:33.602 +02:00 [ERR] Requested scope not allowed: api_gateway
+2020-04-17 02:46:33.602 +02:00 [ERR] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":null,"AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"api_gateway","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 02:46:33.603 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":null,"GrantType":"client_credentials","Error":"invalid_scope","ErrorDescription":null,"Category":"Token","Name":"Token Issued Failure","EventType":"Failure","Id":2001,"Message":null,"ActivityId":"0HLV2CTE2480E:00000003","TimeStamp":"2020-04-17T00:46:33.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedFailureEvent"}
+2020-04-17 02:48:35.070 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 02:48:35.071 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 02:48:35.072 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 02:48:35.072 +02:00 [DBG] Start discovery request
+2020-04-17 02:48:35.212 +02:00 [DBG] Found ["api_gateway"] as all scopes in database
+2020-04-17 02:48:35.771 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 02:48:35.774 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 02:48:35.774 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 02:48:35.775 +02:00 [DBG] Start key discovery request
+2020-04-17 02:48:36.936 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 02:48:36.947 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 02:48:36.947 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 02:48:36.947 +02:00 [DBG] Start token request.
+2020-04-17 02:48:36.947 +02:00 [DBG] Start client validation
+2020-04-17 02:48:36.947 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 02:48:36.947 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 02:48:36.948 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 02:48:36.948 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 02:48:36.986 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 02:48:36.986 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 02:48:36.986 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 02:48:36.987 +02:00 [DBG] Client validation success
+2020-04-17 02:48:36.987 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480F:00000003","TimeStamp":"2020-04-17T00:48:36.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 02:48:36.987 +02:00 [DBG] Start token request validation
+2020-04-17 02:48:36.987 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 02:48:36.990 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 02:48:36.995 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 02:48:37.003 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 02:48:37.009 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 02:48:37.012 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 02:48:37.013 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"api_gateway","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"api_gateway","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 02:48:37.046 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 02:48:37.518 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"api_gateway","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****6bRg","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480F:00000003","TimeStamp":"2020-04-17T00:48:37.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 02:48:37.518 +02:00 [DBG] Token request success.
+2020-04-17 03:36:21.198 +02:00 [INF] Removing 0 grants
+2020-04-17 03:36:21.222 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 04:25:55.415 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:25:55.419 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:25:55.419 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:25:55.419 +02:00 [DBG] Start discovery request
+2020-04-17 04:25:55.538 +02:00 [DBG] Found ["api_gateway"] as all scopes in database
+2020-04-17 04:25:56.270 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:25:56.272 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:25:56.273 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:25:56.273 +02:00 [DBG] Start key discovery request
+2020-04-17 04:26:38.202 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:26:38.203 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:26:38.203 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:26:38.203 +02:00 [DBG] Start discovery request
+2020-04-17 04:26:38.470 +02:00 [DBG] Found ["api_gateway"] as all scopes in database
+2020-04-17 04:26:38.820 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:26:38.821 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:26:38.821 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:26:38.821 +02:00 [DBG] Start key discovery request
+2020-04-17 04:26:39.923 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 04:26:39.924 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 04:26:39.924 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 04:26:39.924 +02:00 [DBG] Start token request.
+2020-04-17 04:26:39.924 +02:00 [DBG] Start client validation
+2020-04-17 04:26:39.924 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 04:26:39.924 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 04:26:39.925 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 04:26:39.925 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 04:26:39.994 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 04:26:39.994 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 04:26:39.994 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 04:26:39.995 +02:00 [DBG] Client validation success
+2020-04-17 04:26:39.995 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480H:00000003","TimeStamp":"2020-04-17T02:26:39.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 04:26:39.996 +02:00 [DBG] Start token request validation
+2020-04-17 04:26:39.996 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 04:26:39.999 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:26:40.005 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 04:26:40.007 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:26:40.010 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 04:26:40.011 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 04:26:40.011 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"api_gateway","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"api_gateway","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 04:26:40.011 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 04:26:40.015 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"api_gateway","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****Ic8w","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480H:00000003","TimeStamp":"2020-04-17T02:26:40.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 04:26:40.015 +02:00 [DBG] Token request success.
+2020-04-17 04:27:21.457 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:27:21.460 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:27:21.460 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:27:21.461 +02:00 [DBG] Start discovery request
+2020-04-17 04:27:21.593 +02:00 [DBG] Found ["api_gateway"] as all scopes in database
+2020-04-17 04:27:21.880 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:27:21.881 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:27:21.882 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:27:21.882 +02:00 [DBG] Start key discovery request
+2020-04-17 04:27:22.640 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 04:27:22.641 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 04:27:22.641 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 04:27:22.641 +02:00 [DBG] Start token request.
+2020-04-17 04:27:22.641 +02:00 [DBG] Start client validation
+2020-04-17 04:27:22.641 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 04:27:22.641 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 04:27:22.642 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 04:27:22.642 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 04:27:22.730 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 04:27:22.731 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 04:27:22.731 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 04:27:22.731 +02:00 [DBG] Client validation success
+2020-04-17 04:27:22.732 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480I:00000003","TimeStamp":"2020-04-17T02:27:22.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 04:27:22.732 +02:00 [DBG] Start token request validation
+2020-04-17 04:27:22.732 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 04:27:22.737 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:27:22.743 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 04:27:22.746 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:27:22.753 +02:00 [DBG] Found ["api_gateway"] API scopes in database
+2020-04-17 04:27:22.753 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 04:27:22.754 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"api_gateway","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 04:27:22.754 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 04:27:22.757 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"api_gateway","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****n0Gw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480I:00000003","TimeStamp":"2020-04-17T02:27:22.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 04:27:22.758 +02:00 [DBG] Token request success.
+2020-04-17 04:28:24.489 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:28:24.491 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:28:24.491 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:28:24.491 +02:00 [DBG] Start discovery request
+2020-04-17 04:28:25.021 +02:00 [DBG] Found [] as all scopes in database
+2020-04-17 04:28:25.631 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:28:25.631 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:28:25.631 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:28:25.631 +02:00 [DBG] Start key discovery request
+2020-04-17 04:28:26.558 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 04:28:26.559 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 04:28:26.559 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 04:28:26.560 +02:00 [DBG] Start token request.
+2020-04-17 04:28:26.560 +02:00 [DBG] Start client validation
+2020-04-17 04:28:26.560 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 04:28:26.560 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 04:28:26.561 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 04:28:26.561 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 04:28:26.607 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 04:28:26.608 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 04:28:26.608 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 04:28:26.608 +02:00 [DBG] Client validation success
+2020-04-17 04:28:26.608 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480J:00000003","TimeStamp":"2020-04-17T02:28:26.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 04:28:26.609 +02:00 [DBG] Start token request validation
+2020-04-17 04:28:26.609 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 04:28:26.611 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:28:26.616 +02:00 [DBG] Found [] API scopes in database
+2020-04-17 04:28:26.617 +02:00 [ERR] Requested scope not allowed: api_gateway
+2020-04-17 04:28:26.617 +02:00 [ERR] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":null,"AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 04:28:26.617 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":null,"GrantType":"client_credentials","Error":"invalid_scope","ErrorDescription":null,"Category":"Token","Name":"Token Issued Failure","EventType":"Failure","Id":2001,"Message":null,"ActivityId":"0HLV2CTE2480J:00000003","TimeStamp":"2020-04-17T02:28:26.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedFailureEvent"}
+2020-04-17 04:29:48.255 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:29:48.255 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:29:48.255 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:29:48.255 +02:00 [DBG] Start discovery request
+2020-04-17 04:29:48.446 +02:00 [DBG] Found [] as all scopes in database
+2020-04-17 04:29:48.995 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:29:48.995 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:29:48.995 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:29:48.995 +02:00 [DBG] Start key discovery request
+2020-04-17 04:29:50.063 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 04:29:50.063 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 04:29:50.063 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 04:29:50.063 +02:00 [DBG] Start token request.
+2020-04-17 04:29:50.063 +02:00 [DBG] Start client validation
+2020-04-17 04:29:50.063 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 04:29:50.064 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 04:29:50.064 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 04:29:50.064 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 04:29:50.113 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 04:29:50.113 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 04:29:50.114 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 04:29:50.114 +02:00 [DBG] Client validation success
+2020-04-17 04:29:50.114 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480K:00000003","TimeStamp":"2020-04-17T02:29:50.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 04:29:50.115 +02:00 [DBG] Start token request validation
+2020-04-17 04:29:50.115 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 04:29:50.116 +02:00 [ERR] No allowed scopes configured for client{"clientId":"thandizo_whatsapp_client"}, details: {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":null,"AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 04:29:50.117 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":null,"GrantType":"client_credentials","Error":"invalid_scope","ErrorDescription":null,"Category":"Token","Name":"Token Issued Failure","EventType":"Failure","Id":2001,"Message":null,"ActivityId":"0HLV2CTE2480K:00000003","TimeStamp":"2020-04-17T02:29:50.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedFailureEvent"}
+2020-04-17 04:32:19.206 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 04:32:19.206 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 04:32:19.206 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 04:32:19.206 +02:00 [DBG] Start discovery request
+2020-04-17 04:32:19.417 +02:00 [DBG] Found ["coreapi_read"] as all scopes in database
+2020-04-17 04:32:19.996 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 04:32:19.996 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 04:32:19.997 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 04:32:19.997 +02:00 [DBG] Start key discovery request
+2020-04-17 04:32:20.596 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 04:32:20.597 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 04:32:20.597 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 04:32:20.597 +02:00 [DBG] Start token request.
+2020-04-17 04:32:20.597 +02:00 [DBG] Start client validation
+2020-04-17 04:32:20.598 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 04:32:20.598 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 04:32:20.598 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 04:32:20.598 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 04:32:20.640 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 04:32:20.640 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 04:32:20.640 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 04:32:20.640 +02:00 [DBG] Client validation success
+2020-04-17 04:32:20.641 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480L:00000003","TimeStamp":"2020-04-17T02:32:20.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 04:32:20.641 +02:00 [DBG] Start token request validation
+2020-04-17 04:32:20.641 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 04:32:20.643 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:32:20.647 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 04:32:20.649 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 04:32:20.653 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 04:32:20.654 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 04:32:20.654 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"coreapi_read","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 04:32:20.654 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 04:32:20.656 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"coreapi_read","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****F0mQ","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480L:00000003","TimeStamp":"2020-04-17T02:32:20.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 04:32:20.657 +02:00 [DBG] Token request success.
+2020-04-17 04:36:21.343 +02:00 [INF] Removing 0 grants
+2020-04-17 04:36:21.349 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 05:03:57.140 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 05:03:57.140 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 05:03:57.141 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 05:03:57.141 +02:00 [DBG] Start discovery request
+2020-04-17 05:03:57.398 +02:00 [DBG] Found ["coreapi_read"] as all scopes in database
+2020-04-17 05:03:57.947 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 05:03:57.947 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 05:03:57.947 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 05:03:57.948 +02:00 [DBG] Start key discovery request
+2020-04-17 05:03:58.535 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 05:03:58.536 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 05:03:58.536 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 05:03:58.536 +02:00 [DBG] Start token request.
+2020-04-17 05:03:58.537 +02:00 [DBG] Start client validation
+2020-04-17 05:03:58.538 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 05:03:58.538 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 05:03:58.539 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 05:03:58.539 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 05:03:58.590 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 05:03:58.591 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 05:03:58.591 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 05:03:58.591 +02:00 [DBG] Client validation success
+2020-04-17 05:03:58.592 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480M:00000003","TimeStamp":"2020-04-17T03:03:58.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 05:03:58.592 +02:00 [DBG] Start token request validation
+2020-04-17 05:03:58.592 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 05:03:58.595 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 05:03:58.601 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 05:03:58.603 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 05:03:58.606 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 05:03:58.607 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 05:03:58.607 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"coreapi_read","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 05:03:58.607 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 05:03:58.610 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"coreapi_read","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****51PA","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480M:00000003","TimeStamp":"2020-04-17T03:03:58.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 05:03:58.610 +02:00 [DBG] Token request success.
+2020-04-17 05:36:21.420 +02:00 [INF] Removing 0 grants
+2020-04-17 05:36:21.424 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 06:06:23.065 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 06:06:23.066 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 06:06:23.066 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 06:06:23.066 +02:00 [DBG] Start discovery request
+2020-04-17 06:06:23.175 +02:00 [DBG] Found ["coreapi_read"] as all scopes in database
+2020-04-17 06:06:23.617 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 06:06:23.617 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 06:06:23.617 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 06:06:23.617 +02:00 [DBG] Start key discovery request
+2020-04-17 06:07:22.897 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 06:07:22.897 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 06:07:22.897 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 06:07:22.898 +02:00 [DBG] Start discovery request
+2020-04-17 06:07:23.156 +02:00 [DBG] Found ["coreapi_read"] as all scopes in database
+2020-04-17 06:07:23.527 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 06:07:23.528 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 06:07:23.528 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 06:07:23.528 +02:00 [DBG] Start key discovery request
+2020-04-17 06:07:24.335 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-04-17 06:07:24.335 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-04-17 06:07:24.335 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-04-17 06:07:24.336 +02:00 [DBG] Start token request.
+2020-04-17 06:07:24.336 +02:00 [DBG] Start client validation
+2020-04-17 06:07:24.336 +02:00 [DBG] Start parsing Basic Authentication secret
+2020-04-17 06:07:24.336 +02:00 [DBG] Start parsing for secret in post body
+2020-04-17 06:07:24.337 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2020-04-17 06:07:24.337 +02:00 [DBG] Secret id found: thandizo_whatsapp_client
+2020-04-17 06:07:24.404 +02:00 [DBG] thandizo_whatsapp_client found in database: true
+2020-04-17 06:07:24.404 +02:00 [DBG] client configuration validation for client thandizo_whatsapp_client succeeded.
+2020-04-17 06:07:24.404 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-04-17 06:07:24.405 +02:00 [DBG] Client validation success
+2020-04-17 06:07:24.405 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLV2CTE2480O:00000003","TimeStamp":"2020-04-17T04:07:24.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2020-04-17 06:07:24.406 +02:00 [DBG] Start token request validation
+2020-04-17 06:07:24.406 +02:00 [DBG] Start client credentials token request validation
+2020-04-17 06:07:24.408 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 06:07:24.414 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 06:07:24.417 +02:00 [DBG] Found [] identity scopes in database
+2020-04-17 06:07:24.422 +02:00 [DBG] Found ["coreapi_read"] API scopes in database
+2020-04-17 06:07:24.422 +02:00 [DBG] thandizo_whatsapp_client credentials token request validation success
+2020-04-17 06:07:24.423 +02:00 [INF] Token request validation success, {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","GrantType":"client_credentials","Scopes":"coreapi_read","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","client_id":"thandizo_whatsapp_client","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-04-17 06:07:24.423 +02:00 [DBG] Getting claims for access token for client: thandizo_whatsapp_client
+2020-04-17 06:07:24.426 +02:00 [INF] {"ClientId":"thandizo_whatsapp_client","ClientName":"Thandizo WhatsApp Client","RedirectUri":null,"Endpoint":"Token","SubjectId":null,"Scopes":"coreapi_read","GrantType":"client_credentials","Tokens":[{"TokenType":"access_token","TokenValue":"****eC3g","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLV2CTE2480O:00000003","TimeStamp":"2020-04-17T04:07:24.0000000Z","ProcessId":16844,"LocalIpAddress":"::1:5004","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2020-04-17 06:07:24.426 +02:00 [DBG] Token request success.
+2020-04-17 06:07:30.038 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-17 06:07:30.038 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-17 06:07:30.039 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-17 06:07:30.039 +02:00 [DBG] Start discovery request
+2020-04-17 06:07:30.045 +02:00 [DBG] Found ["coreapi_read"] as all scopes in database
+2020-04-17 06:07:30.491 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-17 06:07:30.491 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-17 06:07:30.491 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-17 06:07:30.492 +02:00 [DBG] Start key discovery request
