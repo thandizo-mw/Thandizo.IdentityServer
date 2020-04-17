@@ -963,3 +963,9 @@ System.InvalidOperationException: An exception has been raised that is likely du
 2020-04-17 06:07:30.491 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
 2020-04-17 06:07:30.491 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
 2020-04-17 06:07:30.492 +02:00 [DBG] Start key discovery request
+2020-04-17 06:36:21.498 +02:00 [INF] Removing 0 grants
+2020-04-17 06:36:21.502 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 07:36:21.580 +02:00 [INF] Removing 0 grants
+2020-04-17 07:36:21.587 +02:00 [INF] Removing 0 device flow codes
+2020-04-17 09:08:41.972 +02:00 [INF] Removing 0 grants
+2020-04-17 09:08:41.980 +02:00 [INF] Removing 0 device flow codes

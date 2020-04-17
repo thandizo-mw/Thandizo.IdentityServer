@@ -1,16 +1,15 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
+﻿using IdentityServer4.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System.Reflection;
-using IdentityServer4.Configuration;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
+using System.Reflection;
+using Thandizo.IdentityServer.Data.Migrations.AspNetIdentity;
+using Thandizo.IdentityServer.Models;
 
 namespace IdentityServer
 {
@@ -31,10 +30,16 @@ namespace IdentityServer
 
             services.AddControllersWithViews();
 
-            //var builder = services.AddIdentityServer()
-            //    .AddInMemoryIdentityResources(Config.Ids)
-            //    .AddInMemoryApiResources(Config.Apis)
-            //    .AddInMemoryClients(Config.Clients);
+            services.AddDbContext<ThandizoIdentityDbContext>(options =>
+                options.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly))
+            );
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedEmail = true;
+            })
+            .AddEntityFrameworkStores<ThandizoIdentityDbContext>()
+            .AddDefaultTokenProviders();
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -58,7 +63,8 @@ namespace IdentityServer
             {
                 options.ConfigureDbContext = b => b.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                 options.EnableTokenCleanup = true;
-            });
+            })
+            .AddAspNetIdentity<ApplicationUser>();
 
             // not for production
             builder.AddDeveloperSigningCredential();
