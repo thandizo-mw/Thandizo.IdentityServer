@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +29,9 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                    .AddNewtonsoftJson(options => options.UseCamelCasing(true))
+                    .AddRazorRuntimeCompilation();
 
             services.AddDbContext<ThandizoIdentityDbContext>(options =>
                 options.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly))
@@ -66,6 +69,8 @@ namespace IdentityServer
             })
             .AddAspNetIdentity<ApplicationUser>();
 
+            services.AddMvc();
+
             // not for production
             builder.AddDeveloperSigningCredential();
         }
@@ -77,7 +82,7 @@ namespace IdentityServer
                 app.UseDeveloperExceptionPage();
             }
 
-            // uncomment if you want to add MVC
+
             app.UseStaticFiles();
             app.UseRouting();
 

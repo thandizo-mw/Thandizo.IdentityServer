@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Thandizo.IdentityServer.Data.Migrations.AspNetIdentity;
@@ -9,9 +10,10 @@ using Thandizo.IdentityServer.Data.Migrations.AspNetIdentity;
 namespace Thandizo.IdentityServer.Data.Migrations.AspNetIdentity
 {
     [DbContext(typeof(ThandizoIdentityDbContext))]
-    partial class ThandizoIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200420060400_AddDefaultPassword")]
+    partial class AddDefaultPassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
