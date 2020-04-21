@@ -1,6 +1,8 @@
 ﻿using IdentityServer4.Configuration;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -33,13 +35,22 @@ namespace IdentityServer
                     .AddNewtonsoftJson(options => options.UseCamelCasing(true))
                     .AddRazorRuntimeCompilation();
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.HttpOnly = HttpOnlyPolicy.Always;
+                //options.Secure = CookieSecurePolicy.Always;
+            });
+
             services.AddDbContext<ThandizoIdentityDbContext>(options =>
                 options.UseNpgsql(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly))
             );
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.SignIn.RequireConfirmedEmail = true;
+                options.Password.RequiredLength = 4;
             })
             .AddEntityFrameworkStores<ThandizoIdentityDbContext>()
             .AddDefaultTokenProviders();
@@ -52,11 +63,7 @@ namespace IdentityServer
                 options.Events.RaiseSuccessEvents = true;
                 options.UserInteraction.LoginUrl = "/Account/Login";
                 options.UserInteraction.LogoutUrl = "/Account/Logout";
-                options.Authentication = new AuthenticationOptions()
-                {
-                    CookieLifetime = TimeSpan.FromHours(10), // ID server cookie timeout set to 10 hours
-                    CookieSlidingExpiration = true
-                };
+                
             })
             .AddConfigurationStore(options =>
             {
@@ -85,10 +92,11 @@ namespace IdentityServer
 
             app.UseStaticFiles();
             app.UseRouting();
-
-            app.UseIdentityServer();
+            app.UseCookiePolicy();
+            
 
             app.UseAuthorization();
+            app.UseIdentityServer();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
