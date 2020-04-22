@@ -1,4 +1,4 @@
-@model Thandizo.DataModels.Identity.ViewModels.LoginViewModel
+﻿@model Thandizo.DataModels.Identity.ViewModels.LoginViewModel
 @{
     Layout = null;
  }
@@ -67,7 +67,7 @@
                                                                 <div class="input-group-addon"><i class="icon-lock"></i></div>
                                                             </div>
                                                         </div>
-                                                        @if (Model.AllowRememberLogin)
+                                                        @if (!Model.AllowRememberLogin)
                                                         {
                                                     <div class="form-group">
                                                         <div class="checkbox checkbox-success pr-10 pull-left">

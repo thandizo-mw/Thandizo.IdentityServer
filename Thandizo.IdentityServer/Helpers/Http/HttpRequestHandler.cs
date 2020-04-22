@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Thandizo.IdentityServer.Helpers.Data;
 
 namespace Thandizo.IdentityServer.Helpers
 {

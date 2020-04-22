@@ -12,6 +12,7 @@ using Thandizo.IdentityServer.Data.Migrations.AspNetIdentity;
 using Thandizo.IdentityServer.Helpers;
 using Thandizo.IdentityServer.Models;
 using Thandizo.IdentityServer.Services;
+using Thandizo.IdentityServer.Services.Messaging;
 
 namespace IdentityServer
 {
@@ -76,6 +77,7 @@ namespace IdentityServer
             })
             .AddAspNetIdentity<ApplicationUser>();
             services.AddTransient<IUserManagementService, UserManagementService>();
+            services.AddScoped<ISMSService, SMSService>();
             services.AddScoped<IHttpRequestHandler, HttpRequestHandler>();
             services.AddMvc();
 
