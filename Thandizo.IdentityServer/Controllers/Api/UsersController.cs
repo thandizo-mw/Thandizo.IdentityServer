@@ -1,15 +1,6 @@
-﻿using IdentityServer4.EntityFramework.DbContexts;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using System.Transactions;
-using Thandizo.DataModels.General;
 using Thandizo.DataModels.Identity.DataTransfer;
-using Thandizo.IdentityServer.Helpers.PasswordGenerator;
-using Thandizo.IdentityServer.Models;
 using Thandizo.IdentityServer.Services;
 
 namespace Thandizo.IdentityServer.Controllers.Api
