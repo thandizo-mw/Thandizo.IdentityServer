@@ -162,7 +162,7 @@ namespace IdentityServer
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
             }
 
-            return View("LoggedOut", vm);
+            return Redirect("Login");
         }
 
         [HttpGet]
