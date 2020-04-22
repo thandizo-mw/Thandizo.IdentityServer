@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Thandizo.DataModels.SMS;
 using Thandizo.IdentityServer.Helpers;
+using Thandizo.IdentityServer.Services.Messaging;
 
-namespace Thandizo.IdentityServer.Services
+namespace Thandizo.IdentityServer.Services.Messaging
 {
-    public class SMSService
+    public class SMSService : ISMSService
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
