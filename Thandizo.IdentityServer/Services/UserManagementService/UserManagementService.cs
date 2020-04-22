@@ -8,7 +8,7 @@ using Thandizo.DataModels.General;
 using Thandizo.DataModels.Identity.DataTransfer;
 using Thandizo.IdentityServer.Helpers.Security;
 using Thandizo.IdentityServer.Models;
-
+using Thandizo.IdentityServer.Services.Messaging;
 
 namespace Thandizo.IdentityServer.Services
 {
@@ -17,13 +17,16 @@ namespace Thandizo.IdentityServer.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
+        private readonly ISMSService _smsService;
 
         public UserManagementService(
         UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager)
+        SignInManager<ApplicationUser> signInManager,
+        ISMSService smsService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _smsService = smsService;
         }
 
         public async Task<OutputResponse> RegisterUserAsync(UserDTO userDTO)
@@ -59,6 +62,8 @@ namespace Thandizo.IdentityServer.Services
                         IsErrorOccured = false,
                         Result = password
                     };
+
+
                     scope.Complete();
                 }
             }
@@ -80,6 +85,9 @@ namespace Thandizo.IdentityServer.Services
                 };
 
             }
+
+            if(!response.IsErrorOccured)
+               await _smsService.SendSmsAsync(userDTO.PhoneNumber, password);
 
             return response;
         }
