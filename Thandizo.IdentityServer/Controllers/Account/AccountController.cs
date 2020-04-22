@@ -1,7 +1,6 @@
 using IdentityModel;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
-using IdentityServer4.Models;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
@@ -15,7 +14,7 @@ using System.Threading.Tasks;
 using Thandizo.DataModels.Identity.DataTransfer;
 using Thandizo.DataModels.Identity.ViewModels;
 using Thandizo.DataModels.Identity.ViewModelss;
-using Thandizo.IdentityServer.Helpers;
+using Thandizo.IdentityServer.Helpers.Security;
 using Thandizo.IdentityServer.Models;
 
 namespace IdentityServer
@@ -79,15 +78,12 @@ namespace IdentityServer
 
                     if (context != null)
                     {
-                        if (await _clientStore.IsPkceClientAsync(context.ClientId))
-                        {
-                            // if the client is PKCE then we assume it's native, so this change in how to
-                            // return the response is for better UX for the end user.
-                            return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
-                        }
+                        
+                        return View("Redirect", new RedirectViewModel { RedirectUrl = model.ReturnUrl });
+                        
 
                         // we can trust model.ReturnUrl since GetAuthorizationContextAsync returned non-null
-                        return Redirect(model.ReturnUrl);
+                        //return Redirect(model.ReturnUrl);
                     }
 
                     // request for a local page
