@@ -16,6 +16,7 @@ namespace Thandizo.IdentityServer.Controllers.Api
             _userManagementService = userManagementService;
         }
 
+        [HttpPost("RegisterUser")]
         public async Task<IActionResult> RegisterUser(UserDTO userDTO)
         {
             var response = await _userManagementService.RegisterUserAsync(userDTO);
@@ -28,6 +29,7 @@ namespace Thandizo.IdentityServer.Controllers.Api
             return Created("", response);
         }
 
+        [HttpPost("UpdatePassword")]
         public async Task<IActionResult> UpdatePassword(PasswordResetDTO passwordResetDTO)
         {
             var response = await _userManagementService.UpdatePasswordAsync(passwordResetDTO);

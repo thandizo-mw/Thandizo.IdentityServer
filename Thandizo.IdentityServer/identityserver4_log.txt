@@ -3952,3 +3952,45 @@ System.AggregateException: Some services are not able to be constructed (Error w
 2020-04-22 17:31:31.951 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
 2020-04-22 17:31:32.017 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
 2020-04-22 17:31:32.042 +02:00 [DBG] Start key discovery request
+2020-04-22 18:02:07.763 +02:00 [INF] Starting host...
+2020-04-22 18:02:18.390 +02:00 [INF] Starting IdentityServer4 version 3.1.2.0
+2020-04-22 18:02:18.760 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2020-04-22 18:02:18.763 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2020-04-22 18:02:18.764 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2020-04-22 18:02:18.765 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2020-04-22 18:02:18.765 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2020-04-22 18:02:18.766 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2020-04-22 18:02:24.558 +02:00 [DBG] Login Url: /Account/Login
+2020-04-22 18:02:24.562 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-22 18:02:24.563 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-22 18:02:24.565 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-22 18:02:24.566 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-22 18:02:24.567 +02:00 [DBG] Error Url: /home/error
+2020-04-22 18:02:24.568 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-22 18:06:38.410 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2020-04-22 18:06:38.456 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2020-04-22 18:06:38.465 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2020-04-22 18:06:38.476 +02:00 [DBG] Start discovery request
+2020-04-22 18:06:40.037 +02:00 [DBG] Found ["openid","profile","patientapi_global_access","patientapi_global_write","patientapi_global_read","patientapi_global_update","patientapi_global_delete","patientapi_statistics_read","patientapi_patients_write","patientapi_patients_read","patientapi_patients_update","patientapi_patients_delete","coreapi_global_access","coreapi_global_write","coreapi_global_read","coreapi_global_update","coreapi_global_delete","resourceapi_global_access","resourceapi_global_write","resourceapi_global_read","resourceapi_global_update","resourceapi_global_delete"] as all scopes in database
+2020-04-22 18:06:40.830 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2020-04-22 18:06:40.840 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2020-04-22 18:06:40.841 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2020-04-22 18:06:40.848 +02:00 [DBG] Start key discovery request
+2020-04-22 19:02:18.518 +02:00 [INF] Removing 0 grants
+2020-04-22 19:02:18.548 +02:00 [INF] Removing 0 device flow codes
+2020-04-22 19:19:08.651 +02:00 [INF] Starting host...
+2020-04-22 19:19:16.797 +02:00 [INF] Starting IdentityServer4 version 3.1.2.0
+2020-04-22 19:19:17.255 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2020-04-22 19:19:17.257 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2020-04-22 19:19:17.261 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2020-04-22 19:19:17.262 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2020-04-22 19:19:17.262 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2020-04-22 19:19:17.263 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2020-04-22 19:19:18.920 +02:00 [DBG] Login Url: /Account/Login
+2020-04-22 19:19:18.923 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-04-22 19:19:18.924 +02:00 [DBG] Logout Url: /Account/Logout
+2020-04-22 19:19:18.926 +02:00 [DBG] ConsentUrl Url: /consent
+2020-04-22 19:19:18.927 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-04-22 19:19:18.928 +02:00 [DBG] Error Url: /home/error
+2020-04-22 19:19:18.929 +02:00 [DBG] Error Id Parameter: errorId
+2020-04-22 19:21:26.724 +02:00 [INF] RuAMYYT)
