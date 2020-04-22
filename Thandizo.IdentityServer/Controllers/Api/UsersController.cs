@@ -25,7 +25,7 @@ namespace Thandizo.IdentityServer.Controllers.Api
                 return BadRequest(response.Message);
             }
 
-            return Ok(response);
+            return Created("", response);
         }
 
         public async Task<IActionResult> UpdatePassword(PasswordResetDTO passwordResetDTO)
