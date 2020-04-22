@@ -1,18 +1,17 @@
-﻿using IdentityServer4.Configuration;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using System.Reflection;
 using Thandizo.IdentityServer.Data.Migrations.AspNetIdentity;
+using Thandizo.IdentityServer.Helpers;
 using Thandizo.IdentityServer.Models;
+using Thandizo.IdentityServer.Services;
 
 namespace IdentityServer
 {
@@ -63,6 +62,7 @@ namespace IdentityServer
                 options.Events.RaiseSuccessEvents = true;
                 options.UserInteraction.LoginUrl = "/Account/Login";
                 options.UserInteraction.LogoutUrl = "/Account/Logout";
+                options.InputLengthRestrictions.Scope = 600;
                 
             })
             .AddConfigurationStore(options =>
@@ -75,7 +75,8 @@ namespace IdentityServer
                 options.EnableTokenCleanup = true;
             })
             .AddAspNetIdentity<ApplicationUser>();
-
+            services.AddTransient<IUserManagementService, UserManagementService>();
+            services.AddScoped<IHttpRequestHandler, HttpRequestHandler>();
             services.AddMvc();
 
             // not for production

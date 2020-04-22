@@ -24,6 +24,11 @@
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Thandizo.DataModels" Version="1.0.3.1" />
+    <PackageReference Include="Thandizo.DataModels" Version="1.0.3.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Helpers\Http\" />
+    <Folder Include="Helpers\Data\" />
   </ItemGroup>
 </Project>
