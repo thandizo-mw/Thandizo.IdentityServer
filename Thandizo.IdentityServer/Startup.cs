@@ -78,7 +78,6 @@ namespace IdentityServer
             .AddAspNetIdentity<ApplicationUser>();
             services.AddTransient<IUserManagementService, UserManagementService>();
             services.AddScoped<ISMSService, SMSService>();
-            services.AddScoped<IHttpRequestHandler, HttpRequestHandler>();
             services.AddMvc();
 
             // not for production

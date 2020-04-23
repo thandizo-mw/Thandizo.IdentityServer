@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IdentityServer4.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -55,6 +56,7 @@ namespace Thandizo.IdentityServer.Services
 
                     IList<Claim> userClaimList = new List<Claim>();
                     userClaimList.Add(new Claim("name", user.UserName));
+                    userClaimList.Add(new Claim("full_name", userDTO.FullName));
                     await _userManager.AddClaimsAsync(user, userClaimList);
 
                     response = new OutputResponse
