@@ -28,6 +28,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+#App config
+Thandizo.IdentityServer/appsettings.json
+
 #Custom
 appsettings.*
 

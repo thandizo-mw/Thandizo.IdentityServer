@@ -15,16 +15,13 @@ namespace Thandizo.IdentityServer.Services.Messaging
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
-        private readonly IHttpRequestHandler _httpRequestHandler;
 
         public SMSService(
             IConfiguration configuration,
-            ILoggerFactory loggerFactory,
-            IHttpRequestHandler httpRequestHandler)
+            ILoggerFactory loggerFactory)
         {
             _configuration = configuration;
             _logger = loggerFactory.CreateLogger<SMSService>();
-            _httpRequestHandler = httpRequestHandler;
         }
 
         public string SmsUrl
