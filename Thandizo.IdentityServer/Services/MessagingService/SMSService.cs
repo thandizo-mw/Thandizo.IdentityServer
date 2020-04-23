@@ -43,8 +43,8 @@ namespace Thandizo.IdentityServer.Services.Messaging
             {
                 Message = $"{message}",
                 Recipients = new string[] { number },
-                Sender = "Thandizo",
-                Source = "thandizo_app"
+                Sender = "Khusa",
+                Source = "thandizo_web_portal"
             };
 
             var smsFeedback = await SendSMS(smsMessage, SmsChannel.SendAndForget);

@@ -76,7 +76,7 @@ namespace IdentityServer
                 options.EnableTokenCleanup = true;
             })
             .AddAspNetIdentity<ApplicationUser>();
-            services.AddTransient<IUserManagementService, UserManagementService>();
+            services.AddScoped<IUserManagementService, UserManagementService>();
             services.AddScoped<ISMSService, SMSService>();
             services.AddMvc();
 

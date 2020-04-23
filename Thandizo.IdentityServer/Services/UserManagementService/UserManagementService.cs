@@ -65,7 +65,6 @@ namespace Thandizo.IdentityServer.Services
                         Result = password
                     };
 
-
                     scope.Complete();
                 }
             }

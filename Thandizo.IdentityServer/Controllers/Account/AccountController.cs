@@ -162,7 +162,7 @@ namespace IdentityServer
                 return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
             }
 
-            return Redirect("Login");
+            return Redirect("https://localhost:44348");
         }
 
         [HttpGet]
