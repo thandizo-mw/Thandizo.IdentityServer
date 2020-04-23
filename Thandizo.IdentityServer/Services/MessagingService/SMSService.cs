@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AngleDimension.Standard.Http.HttpServices;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net;
@@ -60,7 +61,6 @@ namespace Thandizo.IdentityServer.Services.Messaging
 
             try
             {
-                var client = new HttpClient();
 
                 string apiEndpoint = string.Empty;
 
@@ -74,7 +74,7 @@ namespace Thandizo.IdentityServer.Services.Messaging
                 }
                 
                 string url = $"{SmsUrl}{apiEndpoint}";
-                var response = await _httpRequestHandler.Post(url, smsMessage);
+                var response = await HttpRequestFactory.Post(url, smsMessage);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     smsFeedback.MessageStatus = 1;
