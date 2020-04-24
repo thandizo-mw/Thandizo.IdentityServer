@@ -7,6 +7,6 @@ namespace Thandizo.IdentityServer.Services
     public interface IUserManagementService
     {
         Task<OutputResponse> RegisterUserAsync(UserDTO userDTO);
-        Task<OutputResponse> UpdatePasswordAsync(PasswordResetDTO passwordResetDTO);
+        Task<OutputResponse> UpdatePasswordAsync(PasswordChangeDTO passwordResetDTO);
     }
 }

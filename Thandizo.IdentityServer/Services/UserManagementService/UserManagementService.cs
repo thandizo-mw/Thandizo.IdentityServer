@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -93,46 +94,48 @@ namespace Thandizo.IdentityServer.Services
             return response;
         }
 
-        public async Task<OutputResponse> UpdatePasswordAsync(PasswordResetDTO passwordResetDTO)
+        public async Task<OutputResponse> UpdatePasswordAsync(PasswordChangeDTO passwordResetDTO)
         {
             var userName = passwordResetDTO.Username;
             var user = await _userManager.FindByNameAsync(userName);
-            var response = new OutputResponse { IsErrorOccured = true };
 
             if (user == null)
             {
-                response = new OutputResponse() { IsErrorOccured = true, Message = "Thandizo couldn't find your user details, please try again later" };
+                return new OutputResponse() { IsErrorOccured = true, Message = "Thandizo couldn't find your user details, please try again later" };
             }
 
             var isOldPassword = await _userManager.CheckPasswordAsync(user, passwordResetDTO.NewPassword);
 
             if (isOldPassword)
             {
-                response = new OutputResponse() { IsErrorOccured = true, Message = "Cannot use an old password, please try a different password" };
+               return new OutputResponse() { IsErrorOccured = true, Message = "Cannot use an old password, please try a different password" };
             }
 
             if (!passwordResetDTO.NewPassword.Equals(passwordResetDTO.NewPasswordConfirmation))
             {
-                response = new OutputResponse() { IsErrorOccured = true, Message = "Your confirmation password does not match your new password" };
+                return new OutputResponse() { IsErrorOccured = true, Message = "Your confirmation password does not match your new password" };
             }
 
-            var passwordReset = await _userManager.ChangePasswordAsync(user, passwordResetDTO.CurrentPassword, passwordResetDTO.NewPassword);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var passwordReset = await _userManager.ResetPasswordAsync(user, token, passwordResetDTO.NewPassword);
             if (!passwordReset.Succeeded)
             {
-                response = new OutputResponse
+                return new OutputResponse
                 {
                     IsErrorOccured = true,
-                    Message = "Sorry Thandizo failed to update your password, please try again"
+                    Message = passwordReset.Errors.FirstOrDefault().Description
                 };
             }
 
-            response = new OutputResponse
+            user.DefaultPassword = 1;
+            await _userManager.UpdateAsync(user);
+
+            return new OutputResponse
             {
                 IsErrorOccured = false,
                 Result = passwordResetDTO.NewPassword
             };
 
-            return response;
         }
     }
 }
