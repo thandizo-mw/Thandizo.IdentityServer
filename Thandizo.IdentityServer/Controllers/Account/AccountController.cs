@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ using Thandizo.DataModels.Identity.ViewModels;
 using Thandizo.DataModels.Identity.ViewModelss;
 using Thandizo.IdentityServer.Helpers.Security;
 using Thandizo.IdentityServer.Models;
+using Thandizo.IdentityServer.Services;
 
 namespace IdentityServer
 {
@@ -29,6 +31,8 @@ namespace IdentityServer
         private readonly IEventService _events;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IUserManagementService _userManagementService;
+        private readonly IConfiguration _configuration;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
@@ -36,7 +40,9 @@ namespace IdentityServer
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IUserManagementService userManagementService,
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -44,6 +50,16 @@ namespace IdentityServer
             _clientStore = clientStore;
             _schemeProvider = schemeProvider;
             _events = events;
+            _userManagementService = userManagementService;
+            _configuration = configuration;
+        }
+
+        public string WebPortalURL 
+        {
+            get
+            {
+                return _configuration["WebPortalURL"];
+            }
         }
 
         /// <summary>
@@ -74,6 +90,11 @@ namespace IdentityServer
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync(model.Username);
+                    if(user.DefaultPassword == 0)
+                    {
+                        return Redirect("UpdatePassword");
+                    }
+
                     await _events.RaiseAsync(new UserLoginSuccessEvent(user.UserName, user.Id, user.UserName));
 
                     if (context != null)
@@ -111,24 +132,28 @@ namespace IdentityServer
             return View(vm);
         }
 
-
-        /// <summary>
-        /// Show logout page
-        /// </summary>
-        [HttpGet] 
-        public async Task<IActionResult> Logout(string logoutId)
+        [Authorize]
+        [HttpGet]
+        public IActionResult UpdatePassword(string returnUrl)
         {
-            // build a model so the logout page knows what to display
-            var vm = await BuildLogoutViewModelAsync(logoutId);
+            var passwordResetVm = new PasswordChangeViewModel();
+            return View(passwordResetVm);
+        }
 
-            if (vm.ShowLogoutPrompt == false)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdatePassword(PasswordChangeDTO passwordResetDTO)
+        {
+            passwordResetDTO.Username = HttpContext.User.Identity.Name;
+            var response = await _userManagementService.UpdatePasswordAsync(passwordResetDTO);
+            if (response.IsErrorOccured)
             {
-                // if the request for logout was properly authenticated from IdentityServer, then
-                // we don't need to show the prompt and can just log the user out directly.
-                return await Logout(vm);
+                ModelState.AddModelError(string.Empty, response.Message);
+                return View();
             }
 
-            return View(vm);
+            return Redirect(WebPortalURL);
+
         }
 
         /// <summary>
@@ -150,19 +175,7 @@ namespace IdentityServer
                 await _events.RaiseAsync(new UserLogoutSuccessEvent(User.GetSubjectId(), User.GetDisplayName()));
             }
 
-            // check if we need to trigger sign-out at an upstream identity provider
-            if (vm.TriggerExternalSignout)
-            {
-                // build a return URL so the upstream provider will redirect back
-                // to us after the user has logged out. this allows us to then
-                // complete our single sign-out processing.
-                string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
-
-                // this triggers a redirect to the external provider for sign-out
-                return SignOut(new AuthenticationProperties { RedirectUri = url }, vm.ExternalAuthenticationScheme);
-            }
-
-            return Redirect("https://localhost:44348");
+            return Redirect(WebPortalURL);
         }
 
         [HttpGet]
