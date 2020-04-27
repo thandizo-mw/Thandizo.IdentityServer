@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -57,6 +58,7 @@ namespace IdentityServer
 
             var builder = services.AddIdentityServer(options =>
             {
+                options.IssuerUri = $"{Configuration.GetValue<string>("Authority")}";
                 options.Events.RaiseErrorEvents = true;
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
@@ -89,6 +91,31 @@ namespace IdentityServer
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseForwardedHeaders(new ForwardedHeadersOptions
+                {
+                    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                });
+
+                app.UseHttpsRedirection();
+                app.UseXXssProtection(options => options.EnabledWithBlockMode());
+                app.UseXContentTypeOptions();
+
+                app.UseHsts(options =>
+                {
+                    options.MaxAge(days: 365);
+                    options.IncludeSubdomains();
+                });
+
+                app.UseCsp(options => options.BlockAllMixedContent());
+                app.UseReferrerPolicy(options => options.NoReferrer());
+                app.Use(async (context, next) =>
+                {
+                    context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                    await next();
+                });
             }
 
 
