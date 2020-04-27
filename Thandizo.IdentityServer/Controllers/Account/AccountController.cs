@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Thandizo.DataModels.Identity.DataTransfer;
 using Thandizo.DataModels.Identity.ViewModels;
 using Thandizo.DataModels.Identity.ViewModelss;
+using Thandizo.IdentityServer.Helpers.Data;
 using Thandizo.IdentityServer.Helpers.Security;
 using Thandizo.IdentityServer.Models;
 using Thandizo.IdentityServer.Services;
@@ -83,7 +84,7 @@ namespace IdentityServer
         {
             // check if we are in the context of an authorization request
             var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
-
+            model.Username = PhoneNumberSanitizer.Sanitize(model.Username, "+265");
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberLogin, lockoutOnFailure: true);
@@ -157,15 +158,27 @@ namespace IdentityServer
         }
 
         /// <summary>
+        /// Show logout page
+        /// </summary>
+        [HttpGet]
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            // build a model so the logout page knows what to display
+            var vm = await BuildLogoutViewModelAsync(logoutId);
+
+            // if the request for logout was properly authenticated from IdentityServer, then
+            // we don't need to show the prompt and can just log the user out directly.
+            return await Logout(vm);
+
+        }
+
+        /// <summary>
         /// Handle logout page postback
         /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout(LogoutDTO model)
         {
-            // build a model so the logged out page knows what to display
-            var vm = await BuildLoggedOutViewModelAsync(model.LogoutId);
-
             if (User?.Identity.IsAuthenticated == true)
             {
                 // delete local authentication cookie
@@ -274,27 +287,6 @@ namespace IdentityServer
                 SignOutIframeUrl = logout?.SignOutIFrameUrl,
                 LogoutId = logoutId
             };
-
-            if (User?.Identity.IsAuthenticated == true)
-            {
-                var idp = User.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
-                if (idp != null && idp != IdentityServer4.IdentityServerConstants.LocalIdentityProvider)
-                {
-                    var providerSupportsSignout = await HttpContext.GetSchemeSupportsSignOutAsync(idp);
-                    if (providerSupportsSignout)
-                    {
-                        if (vm.LogoutId == null)
-                        {
-                            // if there's no current logout context, we need to create one
-                            // this captures necessary info from the current logged in user
-                            // before we signout and redirect away to the external IdP for signout
-                            vm.LogoutId = await _interaction.CreateLogoutContextAsync();
-                        }
-
-                        vm.ExternalAuthenticationScheme = idp;
-                    }
-                }
-            }
 
             return vm;
         }
