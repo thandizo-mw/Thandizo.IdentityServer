@@ -88,6 +88,10 @@ namespace Thandizo.IdentityServer.Services
 
             }
 
+            var message = $"You have been successfully registered as a team member on the" +
+                $" Thandizo web portal. Here is your default password: {password} \n" +
+                $"Login in at https://portal.thandizo.mw";
+
             if(!response.IsErrorOccured)
                await _smsService.SendSmsAsync(userDTO.PhoneNumber, password);
 
@@ -134,6 +138,34 @@ namespace Thandizo.IdentityServer.Services
             {
                 IsErrorOccured = false,
                 Result = passwordResetDTO.NewPassword
+            };
+
+        }
+
+        public async Task<OutputResponse> DeleteUserAsync(UserDTO userDTO)
+        {
+            var user = await _userManager.FindByNameAsync(userDTO.PhoneNumber);
+            if(user == null)
+            {
+                return new OutputResponse
+                {
+                    IsErrorOccured = true,
+                    Message = "User account does not exist"
+                };
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                return new OutputResponse
+                {
+                    IsErrorOccured = true,
+                    Message = "Delete user operation failed"
+                };
+            }
+
+            return new OutputResponse
+            {
+                IsErrorOccured = false
             };
 
         }

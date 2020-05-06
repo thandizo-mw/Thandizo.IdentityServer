@@ -8,5 +8,6 @@ namespace Thandizo.IdentityServer.Services
     {
         Task<OutputResponse> RegisterUserAsync(UserDTO userDTO);
         Task<OutputResponse> UpdatePasswordAsync(PasswordChangeDTO passwordResetDTO);
+        Task<OutputResponse> DeleteUserAsync(UserDTO userDTO);
     }
 }
