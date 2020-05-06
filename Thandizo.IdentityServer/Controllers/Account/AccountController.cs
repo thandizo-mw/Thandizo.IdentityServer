@@ -1,4 +1,3 @@
-using IdentityModel;
 using IdentityServer4.Events;
 using IdentityServer4.Extensions;
 using IdentityServer4.Services;
@@ -19,6 +18,7 @@ using Thandizo.IdentityServer.Helpers.Data;
 using Thandizo.IdentityServer.Helpers.Security;
 using Thandizo.IdentityServer.Models;
 using Thandizo.IdentityServer.Services;
+using Thandizo.IdentityServer.Services.Messaging;
 
 namespace IdentityServer
 {
@@ -34,6 +34,7 @@ namespace IdentityServer
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IUserManagementService _userManagementService;
         private readonly IConfiguration _configuration;
+        private readonly ISMSService _smsService;
 
         public AccountController(
             IIdentityServerInteractionService interaction,
@@ -43,7 +44,8 @@ namespace IdentityServer
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IUserManagementService userManagementService,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ISMSService smsService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -53,6 +55,7 @@ namespace IdentityServer
             _events = events;
             _userManagementService = userManagementService;
             _configuration = configuration;
+            _smsService = smsService;
         }
 
         public string WebPortalURL 
@@ -195,6 +198,73 @@ namespace IdentityServer
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        // GET: /Account/ForgotPassword
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword(string phoneNumber)
+        {
+            return View();
+        }
+
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var phoneNumber = PhoneNumberSanitizer.Sanitize(model.PhoneNumber, "+265");
+                var user = await _userManager.FindByNameAsync(phoneNumber);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "The system couldn't identify a user with that phone number");
+                    // Don't reveal that the user does not exist or is not confirmed
+                    return View("ForgotPassword");
+                }
+
+                // Generate a code as if you are changing phone numbers
+                var code = await _userManager.GenerateChangePhoneNumberTokenAsync(user, phoneNumber);
+                await _smsService.SendSmsAsync(user.PhoneNumber, $"Your password reset code is {code}");
+                return RedirectToAction(nameof(ForgotPasswordVerification), new { PhoneNumber = phoneNumber });
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        // GET: /Account/ResetPassword
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPasswordVerification(string phoneNumber)
+        {
+            return phoneNumber == null ? View("Error") : View(new ForgotPasswordVerificationViewModel { PhoneNumber = phoneNumber });
+        }
+
+        // GET: /Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPasswordVerification(ForgotPasswordVerificationViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByNameAsync(model.PhoneNumber);
+            if (user != null)
+            {
+                var result = await _userManager.ChangePhoneNumberAsync(user, model.PhoneNumber, model.Code);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction(nameof(UpdatePassword), new { phoneNumber = model.PhoneNumber, code = model.Code });
+                }
+            }
+            // If we got this far, something failed, redisplay the form
+            ModelState.AddModelError(string.Empty, "Failed to verify your account");
+            return View(model);
         }
 
 
