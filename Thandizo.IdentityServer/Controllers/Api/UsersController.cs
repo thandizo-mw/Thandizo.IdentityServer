@@ -29,5 +29,18 @@ namespace Thandizo.IdentityServer.Controllers.Api
             return Created("", response);
         }
 
+        [HttpPost("DeleteUser")]
+        public async Task<IActionResult> DeleteUser(UserDTO userDTO)
+        {
+            var response = await _userManagementService.DeleteUserAsync(userDTO);
+
+            if (response.IsErrorOccured)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Created("", response);
+        }
+
     }
 }
