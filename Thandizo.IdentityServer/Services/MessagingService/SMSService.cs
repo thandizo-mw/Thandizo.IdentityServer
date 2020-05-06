@@ -37,8 +37,6 @@ namespace Thandizo.IdentityServer.Services.Messaging
             // You can use the debug output together with return for testing without receiving a SMS message.
             System.Diagnostics.Debug.WriteLine(message);
             _logger.LogInformation(message);
-            //System.Diagnostics.Debug.WriteLine($"Message sent to {number}");
-            //return;
             var smsMessage = new SmsMessage()
             {
                 Message = $"{message}",
