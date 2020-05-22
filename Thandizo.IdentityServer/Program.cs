@@ -50,7 +50,7 @@ namespace IdentityServer
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseSerilog();
                     webBuilder.UseKestrel()
-                              .UseUrls("http://*:5004");
+                              .UseUrls("http://*:5050");
                 });
     }
 }
