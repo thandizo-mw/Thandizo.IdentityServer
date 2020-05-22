@@ -57,7 +57,7 @@ namespace Thandizo.IdentityServer.Controllers.Api
 
             if (response.IsError)
             {
-                return BadRequest(response.ErrorDescription);
+                return BadRequest(response.Error);
             }
 
             return Ok(token);
