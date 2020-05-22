@@ -205,7 +205,7 @@ namespace IdentityServer
         [AllowAnonymous]
         public IActionResult ForgotPassword(string phoneNumber)
         {
-            return View();
+            return View(new ForgotPasswordViewModel { });
         }
 
         // POST: /Account/ForgotPassword
